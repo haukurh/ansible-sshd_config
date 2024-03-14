@@ -1,0 +1,195 @@
+---
+sshd_config_accept_env: []
+sshd_config_address_family: any
+sshd_config_allow_agent_forwarding: "yes"
+sshd_config_allow_groups: []
+sshd_config_allow_stream_local_forwarding: "yes"
+sshd_config_allow_tcp_forwarding: "yes"
+sshd_config_allow_users: []
+sshd_config_authentication_methods: any
+sshd_config_authorized_keys_command: ""
+sshd_config_authorized_keys_command_user: ""
+sshd_config_authorized_keys_file:
+  - .ssh/authorized_keys
+  - .ssh/authorized_keys2
+sshd_config_authorized_principals_command: ""
+sshd_config_authorized_principals_command_user: ""
+sshd_config_authorized_principals_file: ""
+sshd_config_banner: none
+sshd_config_ca_signature_algorithms:
+  - ssh-ed25519
+  - ecdsa-sha2-nistp256
+  - ecdsa-sha2-nistp384
+  - ecdsa-sha2-nistp521
+  - sk-ssh-ed25519@openssh.com
+  - sk-ecdsa-sha2-nistp256@openssh.com
+  - rsa-sha2-512
+  - rsa-sha2-256
+sshd_config_channel_timeout: ""
+sshd_config_chroot_directory: none
+sshd_config_ciphers:
+  - chacha20-poly1305@openssh.com
+  - aes128-ctr
+  - aes192-ctr
+  - aes256-ctr
+  - aes128-gcm@openssh.com
+  - aes256-gcm@openssh.com
+sshd_config_client_alive_count_max: "3"
+sshd_config_client_alive_interval: "0"
+sshd_config_compression: "yes"
+sshd_config_deny_groups: []
+sshd_config_deny_users: []
+sshd_config_disable_forwarding: "no"
+sshd_config_expose_auth_info: "no"
+sshd_config_fingerprint_hash: sha256
+sshd_config_force_command: none
+sshd_config_gateway_ports: "no"
+sshd_config_gssapi_authentication: "no"
+sshd_config_gssapi_cleanup_credentials: "yes"
+sshd_config_gssapi_key_exchange: "no"
+sshd_config_gssapi_strict_acceptor_check: "yes"
+sshd_config_gssapi_store_credentials_on_rekey: "no"
+sshd_config_gssapi_kex_algorithms:
+  - gss-group14-sha256-
+  - gss-group16-sha512-
+  - gss-nistp256-sha256-
+  - gss-curve25519-sha256-
+  - gss-gex-sha1-
+  - gss-group14-sha1-
+sshd_config_hostbased_accepted_algorithms:
+  - ssh-ed25519-cert-v01@openssh.com
+  - ecdsa-sha2-nistp256-cert-v01@openssh.com
+  - ecdsa-sha2-nistp384-cert-v01@openssh.com
+  - ecdsa-sha2-nistp521-cert-v01@openssh.com
+  - sk-ssh-ed25519-cert-v01@openssh.com
+  - sk-ecdsa-sha2-nistp256-cert-v01@openssh.com
+  - rsa-sha2-512-cert-v01@openssh.com
+  - rsa-sha2-256-cert-v01@openssh.com
+  - ssh-ed25519
+  - ecdsa-sha2-nistp256
+  - ecdsa-sha2-nistp384
+  - ecdsa-sha2-nistp521
+  - sk-ssh-ed25519@openssh.com
+  - sk-ecdsa-sha2-nistp256@openssh.com
+  - rsa-sha2-512
+  - rsa-sha2-256
+sshd_config_hostbased_authentication: "no"
+sshd_config_hostbased_uses_name_from_packet_only: "no"
+sshd_config_host_certificate: ""
+sshd_config_host_key:
+  - /etc/ssh/ssh_host_ecdsa_key
+  - /etc/ssh/ssh_host_ed25519_key
+  - /etc/ssh/ssh_host_rsa_key
+sshd_config_host_key_agent: none
+sshd_config_host_key_algorithms:
+  - ssh-ed25519-cert-v01@openssh.com
+  - ecdsa-sha2-nistp256-cert-v01@openssh.com
+  - ecdsa-sha2-nistp384-cert-v01@openssh.com
+  - ecdsa-sha2-nistp521-cert-v01@openssh.com
+  - sk-ssh-ed25519-cert-v01@openssh.com
+  - sk-ecdsa-sha2-nistp256-cert-v01@openssh.com
+  - rsa-sha2-512-cert-v01@openssh.com
+  - rsa-sha2-256-cert-v01@openssh.com
+  - ssh-ed25519
+  - ecdsa-sha2-nistp256
+  - ecdsa-sha2-nistp384
+  - ecdsa-sha2-nistp521
+  - sk-ssh-ed25519@openssh.com
+  - sk-ecdsa-sha2-nistp256@openssh.com
+  - rsa-sha2-512
+  - rsa-sha2-256
+sshd_config_ignore_rhosts: "yes"
+sshd_config_ignore_user_known_hosts: "no"
+sshd_config_include: []
+sshd_config_ipqos:
+  - lowdelay
+  - throughput
+sshd_config_kbd_interactive_authentication: "yes"
+sshd_config_kerberos_authentication: "no"
+sshd_config_kerberos_get_afs_token: "no"
+sshd_config_kerberos_or_local_passwd: "yes"
+sshd_config_kerberos_ticket_cleanup: "yes"
+sshd_config_kex_algorithms:
+  - sntrup761x25519-sha512@openssh.com
+  - curve25519-sha256
+  - curve25519-sha256@libssh.org
+  - ecdh-sha2-nistp256
+  - ecdh-sha2-nistp384
+  - ecdh-sha2-nistp521
+  - diffie-hellman-group-exchange-sha256
+  - diffie-hellman-group16-sha512
+  - diffie-hellman-group18-sha512
+  - diffie-hellman-group14-sha256
+sshd_config_listen_address: []
+sshd_config_login_grace_time: "120"
+sshd_config_log_level: INFO
+sshd_config_log_verbose: ""
+sshd_config_macs:
+  - umac-64-etm@openssh.com
+  - umac-128-etm@openssh.com
+  - hmac-sha2-256-etm@openssh.com
+  - hmac-sha2-512-etm@openssh.com
+  - hmac-sha1-etm@openssh.com
+  - umac-64@openssh.com
+  - umac-128@openssh.com
+  - hmac-sha2-256
+  - hmac-sha2-512
+  - hmac-sha1
+sshd_config_max_auth_tries: "6"
+sshd_config_max_sessions: "10"
+sshd_config_max_startups: 10:30:100
+sshd_config_moduli_file: /etc/ssh/moduli
+sshd_config_password_authentication: "yes"
+sshd_config_permit_empty_passwords: "no"
+sshd_config_permit_listen: any
+sshd_config_permit_open: any
+sshd_config_permit_root_login: prohibit-password
+sshd_config_permit_tty: "yes"
+sshd_config_permit_tunnel: "no"
+sshd_config_permit_user_environment: "no"
+sshd_config_permit_user_rc: "yes"
+sshd_config_per_source_max_startups: none
+sshd_config_per_source_net_block_size: 32:128
+sshd_config_pid_file: /run/sshd.pid
+sshd_config_port: "22"
+sshd_config_print_last_log: "yes"
+sshd_config_print_motd: "yes"
+sshd_config_pubkey_accepted_algorithms:
+  - ssh-ed25519-cert-v01@openssh.com
+  - ecdsa-sha2-nistp256-cert-v01@openssh.com
+  - ecdsa-sha2-nistp384-cert-v01@openssh.com
+  - ecdsa-sha2-nistp521-cert-v01@openssh.com
+  - sk-ssh-ed25519-cert-v01@openssh.com
+  - sk-ecdsa-sha2-nistp256-cert-v01@openssh.com
+  - rsa-sha2-512-cert-v01@openssh.com
+  - rsa-sha2-256-cert-v01@openssh.com
+  - ssh-ed25519
+  - ecdsa-sha2-nistp256
+  - ecdsa-sha2-nistp384
+  - ecdsa-sha2-nistp521
+  - sk-ssh-ed25519@openssh.com
+  - sk-ecdsa-sha2-nistp256@openssh.com
+  - rsa-sha2-512
+  - rsa-sha2-256
+sshd_config_pubkey_auth_options: none
+sshd_config_pubkey_authentication: "yes"
+sshd_config_rekey_limit: default none
+sshd_config_required_rsa_size: "1024"
+sshd_config_revoked_keys: none
+sshd_config_security_key_provider: internal
+sshd_config_set_env: []
+sshd_config_stream_local_bind_mask: "0177"
+sshd_config_stream_local_bind_unlink: "no"
+sshd_config_strict_modes: "yes"
+sshd_config_subsystem: []
+sshd_config_syslog_facility: AUTH
+sshd_config_tcp_keep_alive: "yes"
+sshd_config_trusted_user_ca_keys: none
+sshd_config_unused_connection_timeout: none
+sshd_config_use_dns: "no"
+sshd_config_use_pam: "no"
+sshd_config_version_addendum: none
+sshd_config_x11_display_offset: "10"
+sshd_config_x11_forwarding: "no"
+sshd_config_x11_use_localhost: "yes"
+sshd_config_x_auth_location: /usr/bin/xauth

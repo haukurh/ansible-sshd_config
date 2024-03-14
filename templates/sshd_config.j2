@@ -1,0 +1,574 @@
+{% if sshd_config_accept_env | join(',') != "" %}
+# Specifies what environment variables sent by the client will be copied into the session's
+# environment
+AcceptEnv {{ sshd_config_accept_env | join(' ') }}
+
+{% endif %}
+{% if sshd_config_address_family != "any" %}
+# Specifies which address family should be used by sshd
+AddressFamily {{ sshd_config_address_family }}
+
+{% endif %}
+{% if sshd_config_allow_agent_forwarding != "yes" %}
+# Specifies whether ssh-agent forwarding is permitted
+AllowAgentForwarding {{ sshd_config_allow_agent_forwarding }}
+
+{% endif %}
+{% if sshd_config_allow_groups | join(',') != "" %}
+# Login is allowed only for users whose primary group or supplementary group list matches
+# one of the patterns
+AllowGroups {{ sshd_config_allow_groups | join(' ') }}
+
+{% endif %}
+{% if sshd_config_allow_stream_local_forwarding != "yes" %}
+# Specifies whether StreamLocal (Unix-domain socket) forwarding is permitted
+AllowStreamLocalForwarding {{ sshd_config_allow_stream_local_forwarding }}
+
+{% endif %}
+{% if sshd_config_allow_tcp_forwarding != "yes" %}
+# Specifies whether TCP forwarding is permitted
+AllowTcpForwarding {{ sshd_config_allow_tcp_forwarding }}
+
+{% endif %}
+{% if sshd_config_allow_users | join(',') != "" %}
+# Login is allowed only for user names that match one of the patterns
+AllowUsers {{ sshd_config_allow_users | join(' ') }}
+
+{% endif %}
+{% if sshd_config_authentication_methods != "any" %}
+# Specifies the authentication methods that must be successfully completed for a user to be
+# granted access
+AuthenticationMethods {{ sshd_config_authentication_methods }}
+
+{% endif %}
+{% if sshd_config_authorized_keys_command != "" %}
+# Specifies a program to be used to look up the user's public keys
+AuthorizedKeysCommand {{ sshd_config_authorized_keys_command }}
+
+{% endif %}
+{% if sshd_config_authorized_keys_command_user != "" %}
+# Specifies the user under whose account the AuthorizedKeysCommand is run. It is recommended
+# to use a dedicated user that has no other role on the host than running authorized keys
+# commands. If AuthorizedKeysCommand is specified but AuthorizedKeysCommandUser is not, then
+# sshd(8) will refuse to start
+AuthorizedKeysCommandUser {{ sshd_config_authorized_keys_command_user }}
+
+{% endif %}
+{% if sshd_config_authorized_keys_file | join(',') != ".ssh/authorized_keys,.ssh/authorized_keys2" %}
+# Specifies the file that contains the public keys used for user authentication
+AuthorizedKeysFile {{ sshd_config_authorized_keys_file | join(' ') }}
+
+{% endif %}
+{% if sshd_config_authorized_principals_command != "" %}
+# Specifies a program to be used to generate the list of allowed certificate principals as
+# per AuthorizedPrincipalsFile
+AuthorizedPrincipalsCommand {{ sshd_config_authorized_principals_command }}
+
+{% endif %}
+{% if sshd_config_authorized_principals_command_user != "" %}
+# Specifies the user under whose account the AuthorizedPrincipalsCommand is run
+AuthorizedPrincipalsCommandUser {{ sshd_config_authorized_principals_command_user }}
+
+{% endif %}
+{% if sshd_config_authorized_principals_file != "" %}
+# Specifies a file that lists principal names that are accepted for certificate
+# authentication
+AuthorizedPrincipalsFile {{ sshd_config_authorized_principals_file }}
+
+{% endif %}
+{% if sshd_config_banner != "none" %}
+# The contents of the specified file are sent to the remote user before authentication is
+# allowed
+Banner {{ sshd_config_banner }}
+
+{% endif %}
+{% if sshd_config_ca_signature_algorithms | join(',') != "ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256" %}
+# Specifies which algorithms are allowed for signing of certificates by certificate
+# authorities (CAs)
+CASignatureAlgorithms {{ sshd_config_ca_signature_algorithms | join(',') }}
+
+{% endif %}
+{% if sshd_config_channel_timeout != "" %}
+# Specifies whether and how quickly sshd(8) should close inactive channels
+ChannelTimeout {{ sshd_config_channel_timeout }}
+
+{% endif %}
+{% if sshd_config_chroot_directory != "none" %}
+# Specifies the pathname of a directory to chroot to after authentication
+ChrootDirectory {{ sshd_config_chroot_directory }}
+
+{% endif %}
+{% if sshd_config_ciphers | join(',') != "chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com" %}
+# Specifies the ciphers allowed
+Ciphers {{ sshd_config_ciphers | join(',') }}
+
+{% endif %}
+{% if sshd_config_client_alive_count_max != "3" %}
+# Sets the number of client alive messages which may be sent without sshd receiving any
+# messages back from the client
+ClientAliveCountMax {{ sshd_config_client_alive_count_max }}
+
+{% endif %}
+{% if sshd_config_client_alive_interval != "0" %}
+# Sets a timeout interval in seconds after which if no data has been received from the
+# client, sshd will send a message through the encrypted channel to request a response from
+# the client
+ClientAliveInterval {{ sshd_config_client_alive_interval }}
+
+{% endif %}
+{% if sshd_config_compression != "yes" %}
+# Specifies whether compression is enabled after the user has authenticated successfully
+Compression {{ sshd_config_compression }}
+
+{% endif %}
+{% if sshd_config_deny_groups | join(',') != "" %}
+# Login is disallowed for users whose primary group or supplementary group list matches one
+# of the patterns
+DenyGroups {{ sshd_config_deny_groups | join(' ') }}
+
+{% endif %}
+{% if sshd_config_deny_users | join(',') != "" %}
+# Login is disallowed for user names that match one of the patterns
+DenyUsers {{ sshd_config_deny_users | join(' ') }}
+
+{% endif %}
+{% if sshd_config_disable_forwarding != "no" %}
+# Disables all forwarding features, including X11, ssh-agent(1), TCP and StreamLocal
+DisableForwarding {{ sshd_config_disable_forwarding }}
+
+{% endif %}
+{% if sshd_config_expose_auth_info != "no" %}
+# Writes a temporary file containing a list of authentication methods and public credentials
+# (e.g. keys) used to authenticate the user
+ExposeAuthInfo {{ sshd_config_expose_auth_info }}
+
+{% endif %}
+{% if sshd_config_fingerprint_hash != "sha256" %}
+# Specifies the hash algorithm used when logging key fingerprints
+FingerprintHash {{ sshd_config_fingerprint_hash }}
+
+{% endif %}
+{% if sshd_config_force_command != "none" %}
+# Forces the execution of the command specified by ForceCommand, ignoring any command
+# supplied by the client and ~/.ssh/rc if present
+ForceCommand {{ sshd_config_force_command }}
+
+{% endif %}
+{% if sshd_config_gateway_ports != "no" %}
+# Specifies whether remote hosts are allowed to connect to ports forwarded for the client
+GatewayPorts {{ sshd_config_gateway_ports }}
+
+{% endif %}
+{% if sshd_config_gssapi_authentication != "no" %}
+# Specifies whether user authentication based on GSSAPI is allowed
+GSSAPIAuthentication {{ sshd_config_gssapi_authentication }}
+
+{% endif %}
+{% if sshd_config_gssapi_cleanup_credentials != "yes" %}
+# Specifies whether to automatically destroy the user's credentials cache on logout
+GSSAPICleanupCredentials {{ sshd_config_gssapi_cleanup_credentials }}
+
+{% endif %}
+{% if sshd_config_gssapi_key_exchange != "no" %}
+# Specifies whether key exchange based on GSSAPI is allowed. GSSAPI key exchange doesn't
+# rely on ssh keys to verify host identity
+GSSAPIKeyExchange {{ sshd_config_gssapi_key_exchange }}
+
+{% endif %}
+{% if sshd_config_gssapi_strict_acceptor_check != "yes" %}
+# Determines whether to be strict about the identity of the GSSAPI acceptor a client
+# authenticates against
+GSSAPIStrictAcceptorCheck {{ sshd_config_gssapi_strict_acceptor_check }}
+
+{% endif %}
+{% if sshd_config_gssapi_store_credentials_on_rekey != "no" %}
+# Controls whether the user's GSSAPI credentials should be updated following a successful
+# connection rekeying
+GSSAPIStoreCredentialsOnRekey {{ sshd_config_gssapi_store_credentials_on_rekey }}
+
+{% endif %}
+{% if sshd_config_gssapi_kex_algorithms | join(',') != "gss-group14-sha256-,gss-group16-sha512-,gss-nistp256-sha256-,gss-curve25519-sha256-,gss-gex-sha1-,gss-group14-sha1-" %}
+# The list of key exchange algorithms that are accepted by GSSAPI key exchange
+GSSAPIKexAlgorithms {{ sshd_config_gssapi_kex_algorithms | join(',') }}
+
+{% endif %}
+{% if sshd_config_hostbased_accepted_algorithms | join(',') != "ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256" %}
+# Specifies the signature algorithms that will be accepted for hostbased authentication as a
+# list of comma-separated patterns
+HostbasedAcceptedAlgorithms {{ sshd_config_hostbased_accepted_algorithms | join(',') }}
+
+{% endif %}
+{% if sshd_config_hostbased_authentication != "no" %}
+# Specifies whether rhosts or /etc/hosts.equiv authentication together with successful
+# public key client host authentication is allowed (host-based authentication)
+HostbasedAuthentication {{ sshd_config_hostbased_authentication }}
+
+{% endif %}
+{% if sshd_config_hostbased_uses_name_from_packet_only != "no" %}
+# Specifies whether or not the server will attempt to perform a reverse name lookup when
+# matching the name in the ~/.shosts, ~/.rhosts, and /etc/hosts.equiv files during
+# HostbasedAuthentication
+HostbasedUsesNameFromPacketOnly {{ sshd_config_hostbased_uses_name_from_packet_only }}
+
+{% endif %}
+{% if sshd_config_host_certificate != "" %}
+# Specifies a file containing a public host certificate. The certificate's public key must
+# match a private host key already specified by HostKey
+HostCertificate {{ sshd_config_host_certificate }}
+
+{% endif %}
+{% if sshd_config_host_key | join(',') != "/etc/ssh/ssh_host_ecdsa_key,/etc/ssh/ssh_host_ed25519_key,/etc/ssh/ssh_host_rsa_key" %}
+# Specifies a file containing a private host key used by SSH
+{% for sshd_config_host_key_entry in sshd_config_host_key %}
+HostKey {{ sshd_config_host_key_entry }}
+{% endfor %}
+
+{% endif %}
+{% if sshd_config_host_key_agent != "none" %}
+# Identifies the UNIX-domain socket used to communicate with an agent that has access to the
+# private host keys
+HostKeyAgent {{ sshd_config_host_key_agent }}
+
+{% endif %}
+{% if sshd_config_host_key_algorithms | join(',') != "ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256" %}
+# Specifies the host key signature algorithms that the server offers
+HostKeyAlgorithms {{ sshd_config_host_key_algorithms | join(',') }}
+
+{% endif %}
+{% if sshd_config_ignore_rhosts != "yes" %}
+# Specifies whether to ignore per-user .rhosts and .shosts files during
+# HostbasedAuthentication
+IgnoreRhosts {{ sshd_config_ignore_rhosts }}
+
+{% endif %}
+{% if sshd_config_ignore_user_known_hosts != "no" %}
+# Specifies whether sshd should ignore the user's ~/.ssh/known_hosts during
+# HostbasedAuthentication and use only the system-wide known hosts file
+# /etc/ssh/ssh_known_hosts
+IgnoreUserKnownHosts {{ sshd_config_ignore_user_known_hosts }}
+
+{% endif %}
+{% if sshd_config_include | join(',') != "" %}
+# Include the specified configuration file(s). Multiple pathnames may be specified and each
+# pathname may contain glob wildcards that will be expanded and processed in lexical order.
+# Files without absolute paths are assumed to be in /etc/ssh
+{% for sshd_config_include_entry in sshd_config_include %}
+Include {{ sshd_config_include_entry }}
+{% endfor %}
+
+{% endif %}
+{% if sshd_config_ipqos | join(',') != "lowdelay,throughput" %}
+# Specifies the IPv4 type-of-service or DSCP class for the connection
+IPQoS {{ sshd_config_ipqos | join(' ') }}
+
+{% endif %}
+{% if sshd_config_kbd_interactive_authentication != "yes" %}
+# Specifies whether to allow keyboard-interactive authentication
+KbdInteractiveAuthentication {{ sshd_config_kbd_interactive_authentication }}
+
+{% endif %}
+{% if sshd_config_kerberos_authentication != "no" %}
+# Specifies whether the password provided by the user for PasswordAuthentication will be
+# validated through the Kerberos KDC
+KerberosAuthentication {{ sshd_config_kerberos_authentication }}
+
+{% endif %}
+{% if sshd_config_kerberos_get_afs_token != "no" %}
+# If AFS is active and the user has a Kerberos 5 TGT, attempt to acquire an AFS token before
+# accessing the user's home directory
+KerberosGetAFSToken {{ sshd_config_kerberos_get_afs_token }}
+
+{% endif %}
+{% if sshd_config_kerberos_or_local_passwd != "yes" %}
+# If password authentication through Kerberos fails then the password will be validated via
+# any additional local mechanism such as /etc/passwd
+KerberosOrLocalPasswd {{ sshd_config_kerberos_or_local_passwd }}
+
+{% endif %}
+{% if sshd_config_kerberos_ticket_cleanup != "yes" %}
+# Specifies whether to automatically destroy the user's ticket cache file on logout
+KerberosTicketCleanup {{ sshd_config_kerberos_ticket_cleanup }}
+
+{% endif %}
+{% if sshd_config_kex_algorithms | join(',') != "sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256" %}
+# Specifies the available KEX (Key Exchange) algorithms
+KexAlgorithms {{ sshd_config_kex_algorithms | join(',') }}
+
+{% endif %}
+{% if sshd_config_listen_address | join(',') != "" %}
+# Specifies the local addresses sshd should listen on
+{% for sshd_config_listen_address_entry in sshd_config_listen_address %}
+ListenAddress {{ sshd_config_listen_address_entry }}
+{% endfor %}
+
+{% endif %}
+{% if sshd_config_login_grace_time != "120" %}
+# The server disconnects after this time if the user has not successfully logged in
+LoginGraceTime {{ sshd_config_login_grace_time }}
+
+{% endif %}
+{% if sshd_config_log_level != "INFO" %}
+# Gives the verbosity level that is used when logging messages from sshd
+LogLevel {{ sshd_config_log_level }}
+
+{% endif %}
+{% if sshd_config_log_verbose != "" %}
+# Specify one or more overrides to LogLevel. An override consists of a pattern lists that
+# matches the source file, function and line number to force detailed logging for
+LogVerbose {{ sshd_config_log_verbose }}
+
+{% endif %}
+{% if sshd_config_macs | join(',') != "umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1" %}
+# Specifies the available MAC (message authentication code) algorithms. The MAC algorithm is
+# used for data integrity protection
+MACs {{ sshd_config_macs | join(',') }}
+
+{% endif %}
+{% if sshd_config_max_auth_tries != "6" %}
+# Specifies the maximum number of authentication attempts permitted per connection. Once the
+# number of failures reaches half this value, additional failures are logged
+MaxAuthTries {{ sshd_config_max_auth_tries }}
+
+{% endif %}
+{% if sshd_config_max_sessions != "10" %}
+# Specifies the maximum number of open shell, login or subsystem (e.g. sftp) sessions
+# permitted per network connection
+MaxSessions {{ sshd_config_max_sessions }}
+
+{% endif %}
+{% if sshd_config_max_startups != "10:30:100" %}
+# Specifies the maximum number of concurrent unauthenticated connections to the SSH daemon.
+# Additional connections will be dropped until authentication succeeds or the LoginGraceTime
+# expires for a connection
+MaxStartups {{ sshd_config_max_startups }}
+
+{% endif %}
+{% if sshd_config_moduli_file != "/etc/ssh/moduli" %}
+# Specifies the moduli file that contains the Diffie-Hellman groups used for the
+# “diffie-hellman-group-exchange-sha1” and “diffie-hellman-group-exchange-sha256”
+# key exchange methods
+ModuliFile {{ sshd_config_moduli_file }}
+
+{% endif %}
+{% if sshd_config_password_authentication != "yes" %}
+# Specifies whether password authentication is allowed
+PasswordAuthentication {{ sshd_config_password_authentication }}
+
+{% endif %}
+{% if sshd_config_permit_empty_passwords != "no" %}
+# When password authentication is allowed, it specifies whether the server allows login to
+# accounts with empty password strings
+PermitEmptyPasswords {{ sshd_config_permit_empty_passwords }}
+
+{% endif %}
+{% if sshd_config_permit_listen != "any" %}
+# Specifies the addresses/ports on which a remote TCP port forwarding may listen
+PermitListen {{ sshd_config_permit_listen }}
+
+{% endif %}
+{% if sshd_config_permit_open != "any" %}
+# Specifies the destinations to which TCP port forwarding is permitted
+PermitOpen {{ sshd_config_permit_open }}
+
+{% endif %}
+{% if sshd_config_permit_root_login != "prohibit-password" %}
+# Specifies whether root can log in using ssh
+PermitRootLogin {{ sshd_config_permit_root_login }}
+
+{% endif %}
+{% if sshd_config_permit_tty != "yes" %}
+# Specifies whether pty allocation is permitted
+PermitTTY {{ sshd_config_permit_tty }}
+
+{% endif %}
+{% if sshd_config_permit_tunnel != "no" %}
+# Specifies whether tun device forwarding is allowed. The argument must be yes,
+# point-to-point (layer 3), ethernet (layer 2), or no
+PermitTunnel {{ sshd_config_permit_tunnel }}
+
+{% endif %}
+{% if sshd_config_permit_user_environment != "no" %}
+# Specifies whether ~/.ssh/environment and environment= options in ~/.ssh/authorized_keys
+# are processed by sshd
+PermitUserEnvironment {{ sshd_config_permit_user_environment }}
+
+{% endif %}
+{% if sshd_config_permit_user_rc != "yes" %}
+# Specifies whether any ~/.ssh/rc file is executed
+PermitUserRC {{ sshd_config_permit_user_rc }}
+
+{% endif %}
+{% if sshd_config_per_source_max_startups != "none" %}
+# Specifies the number of unauthenticated connections allowed from a given source address,
+# or “none” if there is no limit
+PerSourceMaxStartups {{ sshd_config_per_source_max_startups }}
+
+{% endif %}
+{% if sshd_config_per_source_net_block_size != "32:128" %}
+# Specifies the number of bits of source address that are grouped together for the purposes
+# of applying PerSourceMaxStartups limits
+PerSourceNetBlockSize {{ sshd_config_per_source_net_block_size }}
+
+{% endif %}
+{% if sshd_config_pid_file != "/run/sshd.pid" %}
+# Specifies the file that contains the process ID of the SSH daemon, or none to not write
+# one
+PidFile {{ sshd_config_pid_file }}
+
+{% endif %}
+{% if sshd_config_port != "22" %}
+# Specifies the port number that sshd listens on. The default is 22. Multiple options of
+# this type are permitted
+Port {{ sshd_config_port }}
+
+{% endif %}
+{% if sshd_config_print_last_log != "yes" %}
+# Specifies whether sshd should print the date and time of the last user login when a user
+# logs in interactively
+PrintLastLog {{ sshd_config_print_last_log }}
+
+{% endif %}
+{% if sshd_config_print_motd != "yes" %}
+# Specifies whether sshd should print /etc/motd when a user logs in interactively
+PrintMotd {{ sshd_config_print_motd }}
+
+{% endif %}
+{% if sshd_config_pubkey_accepted_algorithms | join(',') != "ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256" %}
+# Specifies the signature algorithms that will be accepted for public key authentication as
+# a list of comma-separated patterns
+PubkeyAcceptedAlgorithms {{ sshd_config_pubkey_accepted_algorithms | join(',') }}
+
+{% endif %}
+{% if sshd_config_pubkey_auth_options != "none" %}
+# Sets one or more public key authentication options
+PubkeyAuthOptions {{ sshd_config_pubkey_auth_options }}
+
+{% endif %}
+{% if sshd_config_pubkey_authentication != "yes" %}
+# Specifies whether public key authentication is allowed
+PubkeyAuthentication {{ sshd_config_pubkey_authentication }}
+
+{% endif %}
+{% if sshd_config_rekey_limit != "default none" %}
+# Specifies the maximum amount of data that may be transmitted or received before the
+# session key is renegotiated, optionally followed by a maximum amount of time that may pass
+# before the session key is renegotiated
+RekeyLimit {{ sshd_config_rekey_limit }}
+
+{% endif %}
+{% if sshd_config_required_rsa_size != "1024" %}
+# Specifies the minimum RSA key size (in bits) that sshd will accept. User and host-based
+# authentication keys smaller than this limit will be refused. The default is 1024 bits
+RequiredRSASize {{ sshd_config_required_rsa_size }}
+
+{% endif %}
+{% if sshd_config_revoked_keys != "none" %}
+# Specifies revoked public keys file, or none to not use one. Keys listed in this file will
+# be refused for public key authentication
+RevokedKeys {{ sshd_config_revoked_keys }}
+
+{% endif %}
+{% if sshd_config_security_key_provider != "internal" %}
+# Specifies a path to a library that will be used when loading FIDO authenticator-hosted
+# keys, overriding the default of using the built-in USB HID support
+SecurityKeyProvider {{ sshd_config_security_key_provider }}
+
+{% endif %}
+{% if sshd_config_set_env | join(',') != "" %}
+# Specifies one or more environment variables to set in child sessions started by sshd as
+# “NAME=VALUE”. The environment value may be quoted (e.g. if it contains whitespace
+# characters)
+{% for sshd_config_set_env_entry in sshd_config_set_env %}
+SetEnv {{ sshd_config_set_env_entry }}
+{% endfor %}
+
+{% endif %}
+{% if sshd_config_stream_local_bind_mask != "0177" %}
+# Sets the octal file creation mode mask (umask) used when creating a Unix-domain socket
+# file for local or remote port forwarding
+StreamLocalBindMask {{ sshd_config_stream_local_bind_mask }}
+
+{% endif %}
+{% if sshd_config_stream_local_bind_unlink != "no" %}
+# Specifies whether to remove an existing Unix-domain socket file for local or remote port
+# forwarding before creating a new one
+StreamLocalBindUnlink {{ sshd_config_stream_local_bind_unlink }}
+
+{% endif %}
+{% if sshd_config_strict_modes != "yes" %}
+# Specifies whether sshd should check file modes and ownership of the user's files and home
+# directory before accepting login
+StrictModes {{ sshd_config_strict_modes }}
+
+{% endif %}
+{% if sshd_config_subsystem | join(',') != "" %}
+# Configures an external subsystem (e.g. file transfer daemon). Arguments should be a
+# subsystem name and a command (with optional arguments) to execute upon subsystem request
+{% for sshd_config_subsystem_entry in sshd_config_subsystem %}
+Subsystem {{ sshd_config_subsystem_entry }}
+{% endfor %}
+
+{% endif %}
+{% if sshd_config_syslog_facility != "AUTH" %}
+# Gives the facility code that is used when logging messages from sshd
+SyslogFacility {{ sshd_config_syslog_facility }}
+
+{% endif %}
+{% if sshd_config_tcp_keep_alive != "yes" %}
+# Specifies whether the system should send TCP keepalive messages to the other side
+TCPKeepAlive {{ sshd_config_tcp_keep_alive }}
+
+{% endif %}
+{% if sshd_config_trusted_user_ca_keys != "none" %}
+# Specifies a file containing public keys of certificate authorities that are trusted to
+# sign user certificates for authentication, or none to not use one
+TrustedUserCAKeys {{ sshd_config_trusted_user_ca_keys }}
+
+{% endif %}
+{% if sshd_config_unused_connection_timeout != "none" %}
+# Specifies whether and how quickly sshd(8) should close client connections with no open
+# channels
+UnusedConnectionTimeout {{ sshd_config_unused_connection_timeout }}
+
+{% endif %}
+{% if sshd_config_use_dns != "no" %}
+# Specifies whether sshd should look up the remote host name, and to check that the resolved
+# host name for the remote IP address maps back to the very same IP address
+UseDNS {{ sshd_config_use_dns }}
+
+{% endif %}
+{% if sshd_config_use_pam != "no" %}
+# Enables the Pluggable Authentication Module interface. If set to yes this will enable PAM
+# authentication using KbdInteractiveAuthentication and PasswordAuthentication in addition
+# to PAM account and session module processing for all authentication types
+UsePAM {{ sshd_config_use_pam }}
+
+{% endif %}
+{% if sshd_config_version_addendum != "none" %}
+# Optionally specifies additional text to append to the SSH protocol banner sent by the
+# server upon connection
+VersionAddendum {{ sshd_config_version_addendum }}
+
+{% endif %}
+{% if sshd_config_x11_display_offset != "10" %}
+# Specifies the first display number available for sshd's X11 forwarding. This prevents sshd
+# from interfering with real X11 servers
+X11DisplayOffset {{ sshd_config_x11_display_offset }}
+
+{% endif %}
+{% if sshd_config_x11_forwarding != "no" %}
+# Specifies whether X11 forwarding is permitted
+X11Forwarding {{ sshd_config_x11_forwarding }}
+
+{% endif %}
+{% if sshd_config_x11_use_localhost != "yes" %}
+# Specifies whether sshd should bind the X11 forwarding server to the loopback address or to
+# the wildcard address
+X11UseLocalhost {{ sshd_config_x11_use_localhost }}
+
+{% endif %}
+{% if sshd_config_x_auth_location != "/usr/bin/xauth" %}
+# Specifies the full pathname of the xauth program, or none to not use one
+XAuthLocation {{ sshd_config_x_auth_location }}
+
+{% endif %}

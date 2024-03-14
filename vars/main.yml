@@ -1,0 +1,10 @@
+---
+sshd_config_authentication_methods:
+  - "publickey"
+sshd_config_accept_env:
+  - "LANG"
+  - "LC_*"
+sshd_config_print_motd: "no"
+sshd_config_disable_forwarding: "yes"
+sshd_config_login_grace_time: "10"
+sshd_config_password_authentication: "no"
